@@ -1,0 +1,55 @@
+<view class="garment-technical">
+  <view
+    wx:if="{{layer.technicalItems && layer.technicalItems.length}}"
+    class="garment-technical__groups"
+  >
+    <view
+      wx:for="{{layer.technicalItems}}"
+      wx:key="id"
+      wx:for-item="technicalItem"
+      class="garment-technical__card"
+    >
+      <text class="garment-technical__heading">{{technicalItem.title}}</text>
+      <view class="garment-technical__art">
+        <image
+          class="garment-technical__image"
+          src="{{technicalItem.assetPath}}"
+          mode="widthFix"
+          aria-label="{{technicalItem.alt}}"
+        />
+      </view>
+      <view class="garment-technical__labels garment-technical__labels--group">
+        <view
+          wx:for="{{technicalItem.labels}}"
+          wx:key="key"
+          wx:for-item="annotation"
+          class="garment-technical__label"
+        >
+          <text class="garment-technical__term">{{annotation.label}}</text>
+          <text class="garment-technical__value">{{annotation.value}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:else>
+    <view class="garment-technical__art">
+      <image
+        class="garment-technical__image"
+        src="{{layer.assetPath}}"
+        mode="widthFix"
+        aria-label="{{layer.alt}}"
+      />
+    </view>
+    <view class="garment-technical__labels">
+      <view
+        wx:for="{{layer.labels}}"
+        wx:key="key"
+        class="garment-technical__label"
+      >
+        <text class="garment-technical__term">{{item.label}}</text>
+        <text class="garment-technical__value">{{item.value}}</text>
+      </view>
+    </view>
+  </block>
+  <text class="garment-technical__disclaimer">{{layer.disclaimer}}</text>
+</view>

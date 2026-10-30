@@ -1,0 +1,44 @@
+<view class="color-plan">
+  <view class="color-plan__palette" aria-label="推荐配色比例">
+    <view
+      wx:for="{{rows}}"
+      wx:key="key"
+      wx:for-item="row"
+      class="color-plan__row"
+    >
+      <view
+        class="color-plan__swatch"
+        style="background-color: {{row.hex}};"
+        aria-label="{{row.roleLabel}} {{row.name}}"
+      ></view>
+      <view class="color-plan__copy">
+        <view class="color-plan__heading">
+          <text class="color-plan__role">{{row.roleLabel}}</text>
+          <text class="color-plan__percentage">{{row.percentage}}%</text>
+        </view>
+        <text class="color-plan__name">{{row.name}}</text>
+        <view class="color-plan__placement">
+          <text>{{row.locationLabel}}：</text>
+          <text
+            wx:for="{{row.placements}}"
+            wx:key="*this"
+            wx:for-item="placement"
+          >{{index ? '、' : ''}}{{placement}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="color-plan__meta">
+    <text class="color-plan__meta-label">替代色</text>
+    <view class="color-plan__alternatives">
+      <text
+        wx:for="{{plan.alternatives}}"
+        wx:key="*this"
+        class="color-plan__alternative"
+      >{{index ? '、' : ''}}{{item}}</text>
+    </view>
+  </view>
+  <text class="color-plan__reason">{{plan.reason}}</text>
+  <text class="color-plan__disclaimer">{{plan.screenColorDisclaimer}}</text>
+</view>

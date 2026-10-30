@@ -1,0 +1,208 @@
+.home-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20rpx 44rpx 56rpx;
+}
+
+.wardrobe-art {
+  position: relative;
+  height: 300rpx;
+  margin: 0 auto 28rpx;
+  overflow: hidden;
+}
+
+.wardrobe-art::before {
+  position: absolute;
+  top: 44rpx;
+  left: 50%;
+  width: 430rpx;
+  height: 220rpx;
+  border-radius: 50%;
+  background: rgba(225, 231, 220, 0.58);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.wardrobe-art__frame {
+  position: absolute;
+  top: 34rpx;
+  left: 50%;
+  width: 386rpx;
+  height: 228rpx;
+  border-top: 5rpx solid #9b7257;
+  border-right: 5rpx solid #9b7257;
+  border-left: 5rpx solid #9b7257;
+  border-radius: 22rpx 22rpx 0 0;
+  transform: translateX(-50%);
+}
+
+.wardrobe-art__rail {
+  position: absolute;
+  top: 47rpx;
+  left: 36rpx;
+  width: 314rpx;
+  height: 4rpx;
+  border-radius: 4rpx;
+  background: #9b7257;
+}
+
+.wardrobe-art__hanger {
+  position: absolute;
+  top: 49rpx;
+  width: 74rpx;
+  height: 36rpx;
+  border-top: 3rpx solid #9b7257;
+  border-right: 3rpx solid #9b7257;
+  border-left: 3rpx solid #9b7257;
+  border-radius: 40rpx 40rpx 0 0;
+}
+
+.wardrobe-art__hanger--one { left: 58rpx; }
+.wardrobe-art__hanger--two { left: 154rpx; }
+.wardrobe-art__hanger--three { left: 250rpx; }
+
+.wardrobe-art__garment {
+  position: absolute;
+  top: 78rpx;
+  width: 88rpx;
+  height: 136rpx;
+  border-radius: 12rpx 12rpx 20rpx 20rpx;
+  box-shadow: 0 8rpx 18rpx rgba(47, 51, 47, 0.08);
+}
+
+.wardrobe-art__garment--one {
+  left: 51rpx;
+  background: #eee7db;
+}
+
+.wardrobe-art__garment--two {
+  left: 149rpx;
+  background: #839582;
+}
+
+.wardrobe-art__garment--three {
+  left: 247rpx;
+  background: #c6aa90;
+}
+
+.wardrobe-art__ground {
+  position: absolute;
+  bottom: 16rpx;
+  left: 50%;
+  width: 520rpx;
+  height: 2rpx;
+  background: #e5e1d8;
+  transform: translateX(-50%);
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home-content__brand {
+  margin-bottom: 10rpx;
+  color: #9b7257;
+  font-size: 24rpx;
+  font-weight: 600;
+  letter-spacing: 5rpx;
+}
+
+.home-content__title {
+  color: #2f332f;
+  font-size: 50rpx;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.home-content__description {
+  max-width: 590rpx;
+  margin-top: 20rpx;
+  color: #6f756e;
+  font-size: 28rpx;
+  line-height: 1.7;
+}
+
+.home-content__primary {
+  width: 100%;
+  margin-top: 42rpx;
+  border-radius: 26rpx;
+  box-shadow: 0 10rpx 24rpx rgba(70, 90, 71, 0.14);
+}
+
+.home-content__secondary {
+  width: 100%;
+  margin-top: 18rpx;
+  border-radius: 26rpx;
+}
+
+.home-content__mode-note {
+  margin-top: 22rpx;
+  color: #6f756e;
+  font-size: 24rpx;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.home-content__primary::after,
+.demo-link::after,
+.privacy-link::after {
+  border: 0;
+}
+
+.privacy-promise {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  color: #6f756e;
+  font-size: 24rpx;
+}
+
+.privacy-promise__icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 12rpx;
+}
+
+.demo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  margin: 2rpx 0 0;
+  padding: 0 20rpx;
+  background: transparent;
+  color: #617560;
+  font-size: 28rpx;
+  line-height: 88rpx;
+  text-decoration: underline;
+  text-underline-offset: 7rpx;
+}
+
+.demo-link__icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 6rpx;
+}
+
+.demo-link:active {
+  opacity: 0.72;
+}
+
+.privacy-link {
+  min-height: 88rpx;
+  margin: 0;
+  padding: 0 20rpx;
+  background: transparent;
+  color: #6f756e;
+  font-size: 24rpx;
+  line-height: 88rpx;
+}
+
+.privacy-link:active {
+  color: #465a47;
+  opacity: 0.72;
+}

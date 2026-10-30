@@ -1,0 +1,321 @@
+<view wx:if="{{report}}" class="result-page">
+  <view class="result-hero">
+    <image
+      class="result-hero__brand"
+      src="/assets/branding/brand-mark.svg"
+      mode="aspectFit"
+      aria-hidden="true"
+    />
+    <text class="result-hero__title">你的本色建议</text>
+    <text class="result-hero__description">依据你亲自确认的信息生成。先看前三项，再按需要展开完整报告。</text>
+    <view class="result-hero__mode">
+      <view class="result-hero__mode-dot"></view>
+      <text>本地个性化报告</text>
+    </view>
+  </view>
+
+  <scroll-view class="report-nav" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="report-nav__track" aria-label="报告章节导航">
+      <button
+        wx:for="{{reportSections}}"
+        wx:key="key"
+        class="report-nav__item"
+        data-section="{{item.key}}"
+        data-target="section-{{item.key}}"
+        bindtap="onViewEvidence"
+      >
+        <text class="report-nav__number">{{index + 1}}</text>
+        <text>{{item.title}}</text>
+      </button>
+    </view>
+  </scroll-view>
+
+  <view id="section-basis" class="report-section featureSummary">
+    <button
+      class="report-section__header"
+      data-section="basis"
+      aria-expanded="{{expandedSections.basis}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">01</text>
+        <text class="report-section__title">本次由用户确认的依据</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.basis ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.basis}}" class="basis-list">
+      <view wx:for="{{report.confirmedBasis}}" wx:key="key" class="basis-list__item">
+        <text class="basis-list__label">{{item.label}}</text>
+        <text class="basis-list__value">{{item.value}}</text>
+        <text class="basis-list__source">由你确认</text>
+      </view>
+    </view>
+  </view>
+
+  <view id="section-top" class="report-section report-section--top">
+    <button
+      class="report-section__header"
+      data-section="top"
+      aria-expanded="{{expandedSections.top}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">02</text>
+        <text class="report-section__title">今日最值得先尝试的三项</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.top ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.top}}" class="top-recommendations">
+      <view wx:for="{{topRecommendations}}" wx:key="id" class="top-recommendation">
+        <view class="top-recommendation__number">{{index + 1}}</view>
+        <view class="top-recommendation__copy">
+          <text class="top-recommendation__category">{{item.categoryLabel}}</text>
+          <text class="top-recommendation__action">{{item.action}}</text>
+          <text class="top-recommendation__reason">{{item.reason}}</text>
+          <button
+            class="top-recommendation__evidence"
+            data-section="{{item.evidenceSection}}"
+            data-target="{{item.evidenceTarget}}"
+            bindtap="onViewEvidence"
+          >查看依据</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view id="section-color" class="report-section">
+    <button
+      class="report-section__header"
+      data-section="color"
+      aria-expanded="{{expandedSections.color}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">03</text>
+        <text class="report-section__title">具体色彩方案</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.color ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <color-plan wx:if="{{expandedSections.color}}" plan="{{report.colorPlan}}" />
+  </view>
+
+  <view id="section-overall" class="report-section report-section--visual">
+    <button
+      class="report-section__header"
+      data-section="overall"
+      aria-expanded="{{expandedSections.overall}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">04</text>
+        <text class="report-section__title">整体穿搭示意图</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.overall ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <overall-look wx:if="{{expandedSections.overall}}" layer="{{report.visualLayers.overall}}" />
+  </view>
+
+  <view id="section-collage" class="report-section report-section--visual">
+    <button
+      class="report-section__header"
+      data-section="collage"
+      aria-expanded="{{expandedSections.collage}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">05</text>
+        <text class="report-section__title">单品拼贴卡</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.collage ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <outfit-collage wx:if="{{expandedSections.collage}}" layer="{{report.visualLayers.collage}}" />
+  </view>
+
+  <view id="section-technical" class="report-section report-section--visual">
+    <button
+      class="report-section__header"
+      data-section="technical"
+      aria-expanded="{{expandedSections.technical}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">06</text>
+        <text class="report-section__title">核心服装结构图</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.technical ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.technical}}" class="report-section__content">
+      <garment-technical layer="{{report.visualLayers.technical}}" />
+      <recommendation-card
+        wx:for="{{clothingRecommendations}}"
+        wx:key="id"
+        item="{{item}}"
+        favorite="{{item.favorite}}"
+        feedback="{{item.feedback}}"
+        bind:favoritechange="onFavoriteChange"
+        bind:feedbackchange="onFeedbackChange"
+      />
+    </view>
+  </view>
+
+  <view id="section-hair" class="report-section">
+    <button
+      class="report-section__header"
+      data-section="hair"
+      aria-expanded="{{expandedSections.hair}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">07</text>
+        <text class="report-section__title">发型与发色</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.hair ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.hair}}" class="report-section__content">
+      <recommendation-card
+        wx:for="{{hairRecommendations}}"
+        wx:key="id"
+        item="{{item}}"
+        favorite="{{item.favorite}}"
+        feedback="{{item.feedback}}"
+        bind:favoritechange="onFavoriteChange"
+        bind:feedbackchange="onFeedbackChange"
+      />
+    </view>
+  </view>
+
+  <view id="section-makeup" class="report-section">
+    <button
+      class="report-section__header"
+      data-section="makeup"
+      aria-expanded="{{expandedSections.makeup}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">08</text>
+        <text class="report-section__title">妆造</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.makeup ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.makeup}}" class="report-section__content">
+      <recommendation-card
+        wx:for="{{makeupRecommendations}}"
+        wx:key="id"
+        item="{{item}}"
+        favorite="{{item.favorite}}"
+        feedback="{{item.feedback}}"
+        bind:favoritechange="onFavoriteChange"
+        bind:feedbackchange="onFeedbackChange"
+      />
+    </view>
+  </view>
+
+  <view id="section-accessories" class="report-section">
+    <button
+      class="report-section__header"
+      data-section="accessories"
+      aria-expanded="{{expandedSections.accessories}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">09</text>
+        <text class="report-section__title">配饰与眼镜</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.accessories ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.accessories}}" class="report-section__content">
+      <recommendation-card
+        wx:for="{{accessoryRecommendations}}"
+        wx:key="id"
+        item="{{item}}"
+        favorite="{{item.favorite}}"
+        feedback="{{item.feedback}}"
+        bind:favoritechange="onFavoriteChange"
+        bind:feedbackchange="onFeedbackChange"
+      />
+    </view>
+  </view>
+
+  <view id="section-scene" class="report-section">
+    <button
+      class="report-section__header"
+      data-section="scene"
+      aria-expanded="{{expandedSections.scene}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">10</text>
+        <text class="report-section__title">场合切换</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.scene ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.scene}}" class="report-section__content">
+      <recommendation-card
+        wx:for="{{sceneRecommendations}}"
+        wx:key="id"
+        item="{{item}}"
+        favorite="{{item.favorite}}"
+        feedback="{{item.feedback}}"
+        bind:favoritechange="onFavoriteChange"
+        bind:feedbackchange="onFeedbackChange"
+      />
+    </view>
+  </view>
+
+  <view id="section-alternatives" class="report-section">
+    <button
+      class="report-section__header"
+      data-section="alternatives"
+      aria-expanded="{{expandedSections.alternatives}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">11</text>
+        <text class="report-section__title">替代方案</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.alternatives ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.alternatives}}" class="alternative-list">
+      <view wx:for="{{alternativeItems}}" wx:key="id" class="alternative-list__item">
+        <text class="alternative-list__action">{{item.action}}</text>
+        <text class="alternative-list__value">也可以：{{item.alternative}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view id="section-rationale" class="report-section">
+    <button
+      class="report-section__header"
+      data-section="rationale"
+      aria-expanded="{{expandedSections.rationale}}"
+      bindtap="onToggleSection"
+    >
+      <view class="report-section__heading">
+        <text class="report-section__index">12</text>
+        <text class="report-section__title">推荐理由与趋势有效期</text>
+      </view>
+      <image class="report-section__chevron {{expandedSections.rationale ? 'is-expanded' : ''}}" src="/assets/icons/chevron.svg" mode="aspectFit" aria-hidden="true" />
+    </button>
+    <view wx:if="{{expandedSections.rationale}}" class="rationale-list">
+      <view class="trend-summary">
+        <text class="trend-summary__label">趋势说明</text>
+        <text class="trend-summary__value">{{trendSummary}}</text>
+      </view>
+      <view wx:for="{{rationaleItems}}" wx:key="id" class="rationale-list__item">
+        <text class="rationale-list__action">{{item.action}}</text>
+        <text class="rationale-list__reason">{{item.reason}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="result-footer">
+    <text class="result-footer__disclaimer">这些建议只用于造型参考，不评价外貌或身份。你可以跳过任何不舒适的建议。</text>
+    <button
+      class="button-secondary result-footer__reanalyze"
+      loading="{{confirmingReset}}"
+      disabled="{{confirmingReset}}"
+      bindtap="onReanalyze"
+    >重新分析</button>
+    <button class="result-footer__settings" bindtap="onOpenSettings">隐私与本地数据</button>
+  </view>
+</view>

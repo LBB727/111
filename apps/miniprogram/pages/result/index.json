@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "你的本色建议",
+  "usingComponents": {
+    "color-plan": "/components/color-plan/index",
+    "garment-technical": "/components/garment-technical/index",
+    "overall-look": "/components/overall-look/index",
+    "outfit-collage": "/components/outfit-collage/index",
+    "recommendation-card": "/components/recommendation-card/index"
+  }
+}

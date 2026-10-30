@@ -1,0 +1,7 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="单排扣外套单品线稿">
+  <rect width="240" height="240" rx="24" fill="#F7F4ED"/>
+  <path d="m80 42-48 42 25 41 21-17-7 95h98l-7-95 21 17 25-41-48-42-22-9h-36Z" fill="#1F2A44" stroke="#465A47" stroke-width="6" stroke-linejoin="round"/>
+  <path d="m101 34 19 31 19-31M120 65v138M78 108l8-27M162 108l-8-27" fill="none" stroke="#F4EFE6" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="120" cy="101" r="5" fill="#B98A69"/>
+  <circle cx="120" cy="126" r="5" fill="#B98A69"/>
+</svg>

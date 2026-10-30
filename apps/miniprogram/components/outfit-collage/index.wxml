@@ -1,0 +1,161 @@
+<view class="outfit-collage">
+  <view class="outfit-collage__grid" aria-label="{{layer.alt}}">
+    <view
+      wx:for="{{layer.items}}"
+      wx:key="id"
+      class="outfit-collage__item"
+    >
+      <view class="outfit-collage__art" aria-label="{{item.name}}">
+        <view
+          wx:if="{{item.visualType === 'top'}}"
+          class="outfit-collage__shape outfit-collage__shape--top"
+        >
+          <view
+            class="outfit-collage__top-sleeve outfit-collage__top-sleeve--left"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__top-sleeve outfit-collage__top-sleeve--right"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__top-body"
+            style="background-color: {{item.hex}};"
+          >
+            <view class="outfit-collage__neckline"></view>
+          </view>
+        </view>
+        <view
+          wx:elif="{{item.visualType === 'outerwear'}}"
+          class="outfit-collage__shape outfit-collage__shape--outerwear"
+        >
+          <view
+            class="outfit-collage__outer-sleeve outfit-collage__outer-sleeve--left"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__outer-sleeve outfit-collage__outer-sleeve--right"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__outer-panel outfit-collage__outer-panel--left"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__outer-panel outfit-collage__outer-panel--right"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view class="outfit-collage__lapel outfit-collage__lapel--left"></view>
+          <view class="outfit-collage__lapel outfit-collage__lapel--right"></view>
+          <view class="outfit-collage__button"></view>
+        </view>
+        <view
+          wx:elif="{{item.visualType === 'trousers'}}"
+          class="outfit-collage__shape outfit-collage__shape--trousers"
+        >
+          <view
+            class="outfit-collage__trouser-waist"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__trouser-leg outfit-collage__trouser-leg--left"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__trouser-leg outfit-collage__trouser-leg--right"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view class="outfit-collage__trouser-crease outfit-collage__trouser-crease--left"></view>
+          <view class="outfit-collage__trouser-crease outfit-collage__trouser-crease--right"></view>
+        </view>
+        <view
+          wx:elif="{{item.visualType === 'skirt'}}"
+          class="outfit-collage__shape outfit-collage__shape--skirt"
+        >
+          <view
+            class="outfit-collage__skirt-waist"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__skirt-body"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view class="outfit-collage__skirt-seam"></view>
+        </view>
+        <view
+          wx:elif="{{item.visualType === 'dress'}}"
+          class="outfit-collage__shape outfit-collage__shape--dress"
+        >
+          <view
+            class="outfit-collage__dress-sleeve outfit-collage__dress-sleeve--left"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__dress-sleeve outfit-collage__dress-sleeve--right"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view
+            class="outfit-collage__dress-bodice"
+            style="background-color: {{item.hex}};"
+          >
+            <view class="outfit-collage__dress-collar"></view>
+          </view>
+          <view
+            class="outfit-collage__dress-skirt"
+            style="background-color: {{item.hex}};"
+          ></view>
+          <view class="outfit-collage__dress-waist"></view>
+        </view>
+        <view
+          wx:elif="{{item.visualType === 'shoes'}}"
+          class="outfit-collage__shape outfit-collage__shape--shoes"
+        >
+          <view
+            class="outfit-collage__shoe outfit-collage__shoe--left"
+            style="background-color: {{item.hex}};"
+          >
+            <view class="outfit-collage__shoe-line"></view>
+          </view>
+          <view
+            class="outfit-collage__shoe outfit-collage__shoe--right"
+            style="background-color: {{item.hex}};"
+          >
+            <view class="outfit-collage__shoe-line"></view>
+          </view>
+        </view>
+        <view
+          wx:elif="{{item.visualType === 'bag'}}"
+          class="outfit-collage__shape outfit-collage__shape--bag"
+        >
+          <view class="outfit-collage__bag-handle"></view>
+          <view
+            class="outfit-collage__bag-body"
+            style="background-color: {{item.hex}};"
+          >
+            <view class="outfit-collage__bag-flap"></view>
+            <view class="outfit-collage__bag-clasp"></view>
+          </view>
+        </view>
+        <image
+          wx:else
+          class="outfit-collage__image"
+          src="{{item.assetPath}}"
+          mode="aspectFit"
+          aria-label="{{item.name}}"
+        />
+      </view>
+      <text class="outfit-collage__name">{{item.name}}</text>
+      <text class="outfit-collage__color">颜色：{{item.colorName}}</text>
+      <view class="outfit-collage__fit">
+        <text>版型：</text>
+        <text
+          wx:for="{{item.fitKeywords}}"
+          wx:key="*this"
+          wx:for-item="keyword"
+        >{{index ? '、' : ''}}{{keyword}}</text>
+      </view>
+      <text class="outfit-collage__alternative">替代：{{item.alternative}}</text>
+    </view>
+  </view>
+  <text class="outfit-collage__disclaimer">{{layer.disclaimer}}</text>
+</view>

@@ -1,0 +1,87 @@
+.garment-technical {
+  overflow: hidden;
+  border: 2rpx solid #e5e1d8;
+  border-radius: 20rpx;
+  background: #ffffff;
+}
+
+.garment-technical__groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rpx;
+  background: #e5e1d8;
+}
+
+.garment-technical__card {
+  min-width: 0;
+  background: #ffffff;
+}
+
+.garment-technical__card:only-child {
+  grid-column: 1 / -1;
+}
+
+.garment-technical__heading {
+  display: block;
+  padding: 22rpx 22rpx 0;
+  color: #2f332f;
+  font-size: 25rpx;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.garment-technical__art {
+  display: flex;
+  justify-content: center;
+  padding: 24rpx 24rpx 8rpx;
+  background: #f2f4ee;
+}
+
+.garment-technical__image {
+  width: 280rpx;
+  max-width: 100%;
+}
+
+.garment-technical__labels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 26rpx;
+  padding: 18rpx 26rpx 24rpx;
+}
+
+.garment-technical__labels--group {
+  grid-template-columns: minmax(0, 1fr);
+  padding: 10rpx 20rpx 22rpx;
+}
+
+.garment-technical__label {
+  display: flex;
+  min-width: 0;
+  justify-content: space-between;
+  gap: 12rpx;
+  padding: 14rpx 0;
+  border-bottom: 2rpx solid #eeeae2;
+  font-size: 23rpx;
+  line-height: 1.55;
+}
+
+.garment-technical__term {
+  flex: 0 0 auto;
+  color: #6f756e;
+}
+
+.garment-technical__value {
+  color: #2f332f;
+  font-weight: 600;
+  text-align: right;
+}
+
+.garment-technical__disclaimer {
+  display: block;
+  padding: 20rpx 26rpx 24rpx;
+  border-top: 2rpx solid #eeeae2;
+  color: #777d76;
+  font-size: 22rpx;
+  line-height: 1.65;
+}

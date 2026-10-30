@@ -1,0 +1,8 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="连衣裙版型技术线稿">
+  <rect width="240" height="240" rx="24" fill="#F7F4ED"/>
+  <path d="m83 39-37 35 21 35 18-16 7 42-35 73h126l-35-73 7-42 18 16 21-35-37-35-20-9h-34Z" fill="#F4EFE6" stroke="#465A47" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m103 31 17 28 17-28M120 59v147M88 133h64M89 93l7-24M151 93l-7-24" fill="none" stroke="#617560" stroke-width="4" stroke-dasharray="7 6" stroke-linecap="round"/>
+  <g fill="#B98A69" stroke="#465A47" stroke-width="3">
+    <circle cx="103" cy="40" r="8"/><circle cx="91" cy="83" r="8"/><circle cx="120" cy="133" r="8"/><circle cx="171" cy="202" r="8"/>
+  </g>
+</svg>

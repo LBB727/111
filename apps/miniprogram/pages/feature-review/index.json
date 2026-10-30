@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "确认造型特征",
+  "usingComponents": {
+    "step-header": "../../components/step-header/index",
+    "choice-group": "../../components/choice-group/index"
+  }
+}

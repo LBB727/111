@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "造型档案",
+  "usingComponents": {
+    "choice-group": "../../components/choice-group/index",
+    "step-header": "../../components/step-header/index"
+  }
+}

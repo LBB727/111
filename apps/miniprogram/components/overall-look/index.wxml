@@ -1,0 +1,159 @@
+<view class="overall-look">
+  <view class="overall-look__figure">
+    <view
+      wx:if="{{layer.preserveCurrent}}"
+      class="overall-look__preserved"
+      aria-label="{{layer.alt}}"
+    >
+      <view class="overall-look__preserved-outline">
+        <view class="overall-look__hanger">
+          <view class="overall-look__hanger-hook"></view>
+          <view class="overall-look__hanger-bar"></view>
+        </view>
+        <text class="overall-look__preserved-title">当前轮廓</text>
+        <view class="overall-look__preserved-colors">
+          <view
+            wx:for="{{layer.colorBlocks}}"
+            wx:key="name"
+            wx:for-item="color"
+            class="overall-look__preserved-color"
+            style="background-color: {{color.hex}};"
+            aria-label="{{color.name}}"
+          ></view>
+        </view>
+      </view>
+      <text class="overall-look__status">{{layer.statusLabel}}</text>
+      <text class="overall-look__status-detail">只叠加可撤回的配色与配饰，不改变肩线、腰位或下装轮廓</text>
+    </view>
+    <view
+      wx:elif="{{layer.pieces && layer.pieces.length}}"
+      class="overall-look__composition"
+      aria-label="{{layer.alt}}"
+    >
+      <view class="overall-look__canvas">
+        <view
+          class="overall-look__hair"
+          style="background-color: {{layer.hairColorSwatch.hex}};"
+        ></view>
+        <view class="overall-look__head"></view>
+        <view class="overall-look__body-guide"></view>
+        <block
+          wx:for="{{layer.pieces}}"
+          wx:key="id"
+          wx:for-item="piece"
+        >
+          <view
+            wx:if="{{piece.silhouette === 'top'}}"
+            class="overall-look__piece overall-look__piece--top"
+            style="background-color: {{piece.hex}};"
+          ></view>
+          <view
+            wx:elif="{{piece.silhouette === 'trousers-straight' || piece.silhouette === 'trousers-wide'}}"
+            class="overall-look__piece overall-look__piece--trousers {{piece.silhouette === 'trousers-wide' ? 'is-wide' : ''}}"
+          >
+            <view
+              class="overall-look__trouser-leg"
+              style="background-color: {{piece.hex}};"
+            ></view>
+            <view
+              class="overall-look__trouser-leg"
+              style="background-color: {{piece.hex}};"
+            ></view>
+          </view>
+          <view
+            wx:elif="{{piece.silhouette === 'skirt-column' || piece.silhouette === 'skirt-a-line'}}"
+            class="overall-look__piece overall-look__piece--skirt {{piece.silhouette === 'skirt-a-line' ? 'is-a-line' : ''}}"
+            style="background-color: {{piece.hex}};"
+          ></view>
+          <view
+            wx:elif="{{piece.silhouette === 'dress-a-line'}}"
+            class="overall-look__piece overall-look__piece--dress"
+            style="background-color: {{piece.hex}};"
+          ></view>
+          <view
+            wx:else
+            class="overall-look__piece overall-look__piece--outer {{piece.silhouette === 'outer-long' ? 'is-long' : ''}} {{piece.silhouette === 'outer-soft' ? 'is-soft' : ''}}"
+          >
+            <view
+              class="overall-look__outer-panel"
+              style="background-color: {{piece.hex}};"
+            ></view>
+            <view
+              class="overall-look__outer-panel"
+              style="background-color: {{piece.hex}};"
+            ></view>
+          </view>
+        </block>
+        <view
+          class="overall-look__accent"
+          style="background-color: {{layer.accent.hex}};"
+          aria-label="{{layer.accent.colorName}}{{layer.accent.label}}"
+        >
+          <view class="overall-look__accent-handle"></view>
+        </view>
+      </view>
+      <view class="overall-look__piece-list">
+        <view
+          wx:for="{{layer.pieces}}"
+          wx:key="id"
+          wx:for-item="piece"
+          class="overall-look__piece-label"
+        >
+          <view
+            class="overall-look__piece-swatch"
+            style="background-color: {{piece.hex}};"
+          ></view>
+          <text>{{piece.colorName}}{{piece.name}}</text>
+        </view>
+        <view class="overall-look__piece-label">
+          <view
+            class="overall-look__piece-swatch"
+            style="background-color: {{layer.accent.hex}};"
+          ></view>
+          <text>{{layer.accent.colorName}}{{layer.accent.label}}</text>
+        </view>
+      </view>
+    </view>
+    <image
+      wx:else
+      class="overall-look__image"
+      src="{{layer.assetPath}}"
+      mode="widthFix"
+      aria-label="{{layer.alt}}"
+    />
+  </view>
+
+  <view class="overall-look__details">
+    <text class="overall-look__label">色彩比例</text>
+    <view class="overall-look__colors">
+      <view
+        wx:for="{{layer.colorBlocks}}"
+        wx:key="name"
+        wx:for-item="color"
+        class="overall-look__color"
+      >
+        <view
+          class="overall-look__swatch"
+          style="background-color: {{color.hex}};"
+          aria-label="{{color.name}}"
+        ></view>
+        <text>{{color.name}} {{color.percentage}}%</text>
+      </view>
+    </view>
+    <view class="overall-look__fact">
+      <text class="overall-look__label">近似发色</text>
+      <view
+        class="overall-look__hair-swatch"
+        style="background-color: {{layer.hairColorSwatch.hex}};"
+        aria-label="{{layer.hairColorSwatch.name}}"
+      ></view>
+      <text>{{layer.hairColorSwatch.name}}（屏幕近似）</text>
+    </view>
+    <view class="overall-look__fact">
+      <text class="overall-look__label">视觉焦点</text>
+      <text>{{layer.focusLabel}}</text>
+    </view>
+  </view>
+
+  <text class="overall-look__disclaimer">{{layer.disclaimer}}</text>
+</view>

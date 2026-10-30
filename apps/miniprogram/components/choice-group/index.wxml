@@ -1,0 +1,20 @@
+<view class="choice-group">
+  <view class="choice-group__heading">
+    <text class="choice-group__label">{{label}}</text>
+    <text wx:if="{{required}}" class="choice-group__required" aria-label="必选">＊</text>
+  </view>
+  <view class="choice-group__options">
+    <button
+      wx:for="{{displayOptions}}"
+      wx:key="value"
+      class="choice-option {{item.selected ? 'choice-option--selected' : ''}} {{appearance === 'outline' ? 'choice-option--outline' : ''}} {{item.disabled ? 'choice-option--disabled' : ''}}"
+      data-index="{{index}}"
+      disabled="{{item.disabled}}"
+      aria-label="{{item.label}}{{item.selected ? '，已选择' : ''}}"
+      bindtap="onSelect"
+    >
+      <text wx:if="{{appearance === 'outline' && item.selected}}" class="choice-option__check">✓</text>
+      {{item.label}}
+    </button>
+  </view>
+</view>

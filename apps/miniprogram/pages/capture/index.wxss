@@ -1,0 +1,119 @@
+.capture-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 42rpx 40rpx 64rpx;
+}
+
+.capture-kind {
+  margin-bottom: 24rpx;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  background: #f5f4ef;
+}
+
+.capture-kind__title {
+  display: block;
+  margin-bottom: 16rpx;
+  font-weight: 600;
+}
+
+.capture-kind__option { margin-right: 36rpx; }
+
+.photo-guide__title { display: block; margin-bottom: 12rpx; font-weight: 600; }
+
+.photo-guide,
+.photo-preview {
+  min-height: 352rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #e5e1d8;
+  border-radius: 24rpx;
+  background: #ffffff;
+}
+
+.photo-guide {
+  display: flex;
+  align-items: center;
+  padding: 40rpx;
+}
+
+.photo-guide__icon {
+  flex: none;
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 36rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: rgba(225, 231, 220, 0.55);
+}
+
+.photo-guide__lines {
+  display: flex;
+  flex-direction: column;
+  color: #2f332f;
+  font-size: 28rpx;
+  line-height: 1.9;
+}
+
+.photo-guide__lines text::before {
+  color: #617560;
+  content: "—";
+  margin-right: 12rpx;
+}
+
+.photo-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20rpx;
+}
+
+.photo-preview__image {
+  width: 100%;
+  height: 268rpx;
+  border-radius: 16rpx;
+  background: #f1eee7;
+}
+
+.photo-preview__status {
+  margin-top: 16rpx;
+  color: #6f756e;
+  font-size: 24rpx;
+}
+
+.capture-actions {
+  margin-top: 42rpx;
+}
+
+.capture-actions__button {
+  width: 100%;
+  margin: 0 0 20rpx;
+  border-radius: 26rpx;
+}
+
+.capture-actions__button::after {
+  border: 0;
+}
+
+.capture-actions__button--disabled {
+  opacity: 0.58;
+}
+
+.capture-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  color: #6f756e;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.capture-note__icon {
+  flex: none;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,143 @@
+<view class="recommendation-card">
+  <button
+    class="recommendation-card__summary"
+    aria-label="{{expanded ? '收起建议依据' : '展开建议依据'}}"
+    aria-expanded="{{expanded}}"
+    bindtap="onToggleExpanded"
+  >
+    <view class="recommendation-card__copy">
+      <text class="recommendation-card__action">{{item.action}}</text>
+      <text class="recommendation-card__hint">{{expanded ? '收起建议依据' : '查看建议依据'}}</text>
+    </view>
+    <image
+      class="recommendation-card__chevron {{expanded ? 'is-expanded' : ''}}"
+      src="/assets/icons/chevron.svg"
+      mode="aspectFit"
+      aria-hidden="true"
+    />
+  </button>
+
+  <view wx:if="{{expanded}}" class="recommendation-card__details">
+    <text class="recommendation-card__details-title">为什么这样建议：为什么适合本次场景</text>
+    <text class="recommendation-card__reason">{{item.reason}}</text>
+    <view class="recommendation-card__evidence">
+      <text class="recommendation-card__meta-label">依据标签</text>
+      <view class="recommendation-card__tags">
+        <text
+          wx:for="{{item.basisLabels}}"
+          wx:key="*this"
+          class="recommendation-card__tag"
+        >{{item}}</text>
+      </view>
+    </view>
+    <view class="recommendation-card__meta-row">
+      <text class="recommendation-card__meta-label">替代方案</text>
+      <text class="recommendation-card__meta-value">{{item.alternative}}</text>
+    </view>
+    <view class="recommendation-card__meta-row">
+      <text class="recommendation-card__meta-label">维护/预算提示</text>
+      <text class="recommendation-card__meta-value">{{item.maintenanceBudgetTip}}</text>
+    </view>
+    <view
+      wx:if="{{item.trendValidUntil}}"
+      class="recommendation-card__meta-row recommendation-card__trend"
+    >
+      <text class="recommendation-card__meta-label">趋势有效期（仅在趋势项中显示）</text>
+      <text class="recommendation-card__meta-value">{{item.trendValidUntil}}</text>
+    </view>
+  </view>
+
+  <view class="recommendation-card__actions">
+    <button
+      class="recommendation-card__action-button {{favorite ? 'is-selected' : ''}}"
+      aria-label="{{favorite ? '取消收藏' : '收藏这条建议'}}"
+      aria-checked="{{favorite}}"
+      bindtap="onFavoriteChange"
+    >
+      <image
+        class="recommendation-card__action-icon"
+        src="/assets/icons/heart.svg"
+        mode="aspectFit"
+        aria-hidden="true"
+      />
+      <text>{{favorite ? '已收藏' : '收藏'}}</text>
+    </button>
+    <block wx:if="{{item.feedbackEligible}}">
+      <button
+        class="recommendation-card__action-button {{feedback === 'liked' ? 'is-selected' : ''}}"
+        data-state="liked"
+        aria-label="{{feedback === 'liked' ? '取消喜欢反馈' : '标记为喜欢'}}"
+        aria-checked="{{feedback === 'liked'}}"
+        bindtap="onFeedbackChange"
+      >
+        <image
+          class="recommendation-card__action-icon"
+          src="/assets/icons/heart.svg"
+          mode="aspectFit"
+          aria-hidden="true"
+        />
+        <text>喜欢</text>
+      </button>
+      <button
+        class="recommendation-card__action-button {{feedback === 'owned' ? 'is-selected' : ''}}"
+        data-state="owned"
+        aria-label="{{feedback === 'owned' ? '取消已有类似反馈' : '标记为已有类似'}}"
+        aria-checked="{{feedback === 'owned'}}"
+        bindtap="onFeedbackChange"
+      >
+        <image
+          class="recommendation-card__action-icon"
+          src="/assets/icons/check.svg"
+          mode="aspectFit"
+          aria-hidden="true"
+        />
+        <text>已有类似</text>
+      </button>
+      <button
+        class="recommendation-card__action-button {{feedback === 'tried' ? 'is-selected' : ''}}"
+        data-state="tried"
+        aria-label="{{feedback === 'tried' ? '取消已尝试反馈' : '标记为已尝试'}}"
+        aria-checked="{{feedback === 'tried'}}"
+        bindtap="onFeedbackChange"
+      >
+        <image
+          class="recommendation-card__action-icon"
+          src="/assets/icons/check.svg"
+          mode="aspectFit"
+          aria-hidden="true"
+        />
+        <text>已尝试</text>
+      </button>
+      <button
+        class="recommendation-card__action-button {{feedback === 'not-for-me' ? 'is-selected' : ''}}"
+        data-state="not-for-me"
+        aria-label="{{feedback === 'not-for-me' ? '取消不适合我反馈' : '标记为不适合我'}}"
+        aria-checked="{{feedback === 'not-for-me'}}"
+        bindtap="onFeedbackChange"
+      >
+        <image
+          class="recommendation-card__action-icon"
+          src="/assets/icons/close.svg"
+          mode="aspectFit"
+          aria-hidden="true"
+        />
+        <text>不适合我</text>
+      </button>
+      <button
+        class="recommendation-card__action-button {{feedback === 'suppress-similar' ? 'is-selected' : ''}}"
+        data-state="suppress-similar"
+        aria-label="{{feedback === 'suppress-similar' ? '取消少推荐同类反馈' : '以后少推荐同类'}}"
+        aria-checked="{{feedback === 'suppress-similar'}}"
+        bindtap="onFeedbackChange"
+      >
+        <image
+          class="recommendation-card__action-icon"
+          src="/assets/icons/refresh.svg"
+          mode="aspectFit"
+          aria-hidden="true"
+        />
+        <text>少推荐同类</text>
+      </button>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,126 @@
+.quality-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 42rpx 40rpx 64rpx;
+}
+
+.quality-summary {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 28rpx;
+  padding: 28rpx;
+  border: 2rpx solid rgba(97, 117, 96, 0.34);
+  border-radius: 20rpx;
+  background: rgba(225, 231, 220, 0.5);
+}
+
+.quality-summary--fail {
+  border-color: rgba(163, 84, 73, 0.34);
+  background: rgba(163, 84, 73, 0.07);
+}
+
+.quality-summary__icon {
+  flex: none;
+  width: 44rpx;
+  height: 44rpx;
+  margin: 4rpx 20rpx 0 0;
+}
+
+.quality-summary__copy,
+.check-item__copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.quality-summary__title {
+  color: #2f332f;
+  font-size: 29rpx;
+  font-weight: 600;
+}
+
+.quality-summary__description,
+.check-item__description {
+  margin-top: 8rpx;
+  color: #6f756e;
+  font-size: 24rpx;
+  line-height: 1.55;
+}
+
+.check-list {
+  overflow: hidden;
+  border: 2rpx solid #e5e1d8;
+  border-radius: 20rpx;
+  background: #ffffff;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  min-height: 116rpx;
+  box-sizing: border-box;
+  padding: 24rpx 26rpx;
+  border-bottom: 2rpx solid #e5e1d8;
+}
+
+.check-item:last-child {
+  border-bottom: 0;
+}
+
+.check-item__icon {
+  flex: none;
+  width: 36rpx;
+  height: 36rpx;
+  margin: 4rpx 18rpx 0 0;
+}
+
+.check-item__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.check-item__label {
+  color: #2f332f;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.check-item__basis {
+  margin-left: 14rpx;
+  padding: 5rpx 12rpx;
+  border-radius: 12rpx;
+  background: rgba(225, 231, 220, 0.65);
+  color: #465a47;
+  font-size: 21rpx;
+  white-space: nowrap;
+}
+
+.check-item__basis--simulated {
+  background: rgba(155, 114, 87, 0.1);
+  color: #9b7257;
+}
+
+.quality-actions {
+  margin-top: 42rpx;
+}
+
+.quality-actions__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 18rpx;
+  border-radius: 26rpx;
+}
+
+.quality-actions__button::after {
+  border: 0;
+}
+
+.quality-actions__icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 12rpx;
+}

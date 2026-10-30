@@ -1,0 +1,395 @@
+.outfit-collage {
+  padding: 24rpx;
+  border: 2rpx solid #e5e1d8;
+  border-radius: 20rpx;
+  background: #ffffff;
+}
+
+.outfit-collage__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.outfit-collage__item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 16rpx;
+  border-radius: 16rpx;
+  background: #f6f4ef;
+}
+
+.outfit-collage__art {
+  display: flex;
+  min-height: 180rpx;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+  border-radius: 12rpx;
+  background: #ffffff;
+}
+
+.outfit-collage__image {
+  width: 168rpx;
+  height: 168rpx;
+}
+
+.outfit-collage__shape {
+  position: relative;
+  width: 168rpx;
+  height: 168rpx;
+}
+
+.outfit-collage__top-body,
+.outfit-collage__top-sleeve,
+.outfit-collage__outer-panel,
+.outfit-collage__outer-sleeve,
+.outfit-collage__trouser-waist,
+.outfit-collage__trouser-leg,
+.outfit-collage__skirt-waist,
+.outfit-collage__skirt-body,
+.outfit-collage__dress-bodice,
+.outfit-collage__dress-sleeve,
+.outfit-collage__dress-skirt,
+.outfit-collage__shoe,
+.outfit-collage__bag-body {
+  position: absolute;
+  box-sizing: border-box;
+  border: 3rpx solid #3f4842;
+}
+
+.outfit-collage__top-body {
+  top: 26rpx;
+  left: 43rpx;
+  z-index: 2;
+  width: 82rpx;
+  height: 122rpx;
+  border-radius: 22rpx 22rpx 10rpx 10rpx;
+}
+
+.outfit-collage__top-sleeve {
+  top: 38rpx;
+  width: 35rpx;
+  height: 100rpx;
+  border-radius: 18rpx 18rpx 9rpx 9rpx;
+}
+
+.outfit-collage__top-sleeve--left {
+  left: 25rpx;
+  transform: rotate(8deg);
+}
+
+.outfit-collage__top-sleeve--right {
+  right: 25rpx;
+  transform: rotate(-8deg);
+}
+
+.outfit-collage__neckline {
+  position: absolute;
+  top: -4rpx;
+  left: 22rpx;
+  width: 32rpx;
+  height: 18rpx;
+  border: 3rpx solid #3f4842;
+  border-top: 0;
+  border-radius: 0 0 20rpx 20rpx;
+  background: #ffffff;
+}
+
+.outfit-collage__outer-panel {
+  top: 22rpx;
+  z-index: 2;
+  width: 43rpx;
+  height: 128rpx;
+}
+
+.outfit-collage__outer-panel--left {
+  left: 42rpx;
+  border-radius: 16rpx 3rpx 7rpx 10rpx;
+}
+
+.outfit-collage__outer-panel--right {
+  right: 42rpx;
+  border-radius: 3rpx 16rpx 10rpx 7rpx;
+}
+
+.outfit-collage__outer-sleeve {
+  top: 32rpx;
+  width: 33rpx;
+  height: 108rpx;
+  border-radius: 16rpx 16rpx 8rpx 8rpx;
+}
+
+.outfit-collage__outer-sleeve--left {
+  left: 23rpx;
+  transform: rotate(7deg);
+}
+
+.outfit-collage__outer-sleeve--right {
+  right: 23rpx;
+  transform: rotate(-7deg);
+}
+
+.outfit-collage__lapel {
+  position: absolute;
+  top: 27rpx;
+  z-index: 3;
+  width: 23rpx;
+  height: 48rpx;
+  border-bottom: 3rpx solid #3f4842;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.outfit-collage__lapel--left {
+  left: 60rpx;
+  border-right: 3rpx solid #3f4842;
+  transform: skewY(30deg);
+}
+
+.outfit-collage__lapel--right {
+  right: 60rpx;
+  border-left: 3rpx solid #3f4842;
+  transform: skewY(-30deg);
+}
+
+.outfit-collage__button {
+  position: absolute;
+  top: 88rpx;
+  left: 81rpx;
+  z-index: 4;
+  width: 7rpx;
+  height: 7rpx;
+  border: 2rpx solid #3f4842;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.outfit-collage__trouser-waist {
+  top: 20rpx;
+  left: 42rpx;
+  z-index: 2;
+  width: 84rpx;
+  height: 25rpx;
+  border-radius: 10rpx 10rpx 2rpx 2rpx;
+}
+
+.outfit-collage__trouser-leg {
+  top: 40rpx;
+  width: 43rpx;
+  height: 112rpx;
+  border-radius: 3rpx 3rpx 8rpx 8rpx;
+}
+
+.outfit-collage__trouser-leg--left {
+  left: 42rpx;
+  transform: skewX(-2deg);
+}
+
+.outfit-collage__trouser-leg--right {
+  right: 42rpx;
+  transform: skewX(2deg);
+}
+
+.outfit-collage__trouser-crease {
+  position: absolute;
+  top: 53rpx;
+  z-index: 3;
+  width: 2rpx;
+  height: 87rpx;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.outfit-collage__trouser-crease--left {
+  left: 63rpx;
+}
+
+.outfit-collage__trouser-crease--right {
+  right: 63rpx;
+}
+
+.outfit-collage__skirt-waist {
+  top: 26rpx;
+  left: 50rpx;
+  z-index: 2;
+  width: 68rpx;
+  height: 24rpx;
+  border-radius: 10rpx 10rpx 3rpx 3rpx;
+}
+
+.outfit-collage__skirt-body {
+  top: 46rpx;
+  left: 34rpx;
+  width: 100rpx;
+  height: 106rpx;
+  border-radius: 7rpx 7rpx 19rpx 19rpx;
+}
+
+.outfit-collage__skirt-seam {
+  position: absolute;
+  top: 59rpx;
+  left: 83rpx;
+  z-index: 3;
+  width: 2rpx;
+  height: 78rpx;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.outfit-collage__dress-bodice {
+  top: 17rpx;
+  left: 53rpx;
+  z-index: 3;
+  width: 62rpx;
+  height: 65rpx;
+  border-radius: 17rpx 17rpx 5rpx 5rpx;
+}
+
+.outfit-collage__dress-sleeve {
+  top: 28rpx;
+  width: 30rpx;
+  height: 58rpx;
+  border-radius: 15rpx 15rpx 9rpx 9rpx;
+}
+
+.outfit-collage__dress-sleeve--left {
+  left: 35rpx;
+  transform: rotate(9deg);
+}
+
+.outfit-collage__dress-sleeve--right {
+  right: 35rpx;
+  transform: rotate(-9deg);
+}
+
+.outfit-collage__dress-skirt {
+  top: 75rpx;
+  left: 32rpx;
+  z-index: 2;
+  width: 104rpx;
+  height: 78rpx;
+  border-radius: 6rpx 6rpx 21rpx 21rpx;
+}
+
+.outfit-collage__dress-waist {
+  position: absolute;
+  top: 75rpx;
+  left: 48rpx;
+  z-index: 4;
+  width: 72rpx;
+  height: 5rpx;
+  border: 2rpx solid #3f4842;
+  border-radius: 5rpx;
+  background: #ffffff;
+}
+
+.outfit-collage__dress-collar {
+  position: absolute;
+  top: -3rpx;
+  left: 17rpx;
+  width: 22rpx;
+  height: 17rpx;
+  border: 3rpx solid #3f4842;
+  border-top: 0;
+  background: #ffffff;
+  transform: rotate(45deg);
+}
+
+.outfit-collage__shoe {
+  top: 65rpx;
+  width: 72rpx;
+  height: 43rpx;
+  border-radius: 24rpx 35rpx 12rpx 13rpx;
+}
+
+.outfit-collage__shoe--left {
+  left: 8rpx;
+  transform: rotate(7deg);
+}
+
+.outfit-collage__shoe--right {
+  right: 8rpx;
+  transform: rotate(-7deg);
+}
+
+.outfit-collage__shoe-line {
+  position: absolute;
+  right: 10rpx;
+  bottom: 8rpx;
+  left: 10rpx;
+  height: 3rpx;
+  border-radius: 3rpx;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.outfit-collage__bag-handle {
+  position: absolute;
+  top: 31rpx;
+  left: 50rpx;
+  width: 68rpx;
+  height: 49rpx;
+  box-sizing: border-box;
+  border: 5rpx solid #3f4842;
+  border-bottom: 0;
+  border-radius: 36rpx 36rpx 0 0;
+}
+
+.outfit-collage__bag-body {
+  top: 66rpx;
+  left: 28rpx;
+  width: 112rpx;
+  height: 78rpx;
+  border-radius: 15rpx 15rpx 20rpx 20rpx;
+}
+
+.outfit-collage__bag-flap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 30rpx;
+  border-bottom: 3rpx solid #3f4842;
+  border-radius: 12rpx 12rpx 20rpx 20rpx;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.outfit-collage__bag-clasp {
+  position: absolute;
+  top: 22rpx;
+  left: 49rpx;
+  z-index: 2;
+  width: 10rpx;
+  height: 10rpx;
+  border: 2rpx solid #3f4842;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.outfit-collage__name {
+  color: #2f332f;
+  font-size: 25rpx;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.outfit-collage__color,
+.outfit-collage__fit,
+.outfit-collage__alternative {
+  margin-top: 6rpx;
+  color: #596158;
+  font-size: 22rpx;
+  line-height: 1.55;
+}
+
+.outfit-collage__alternative {
+  color: #7b6759;
+}
+
+.outfit-collage__disclaimer {
+  display: block;
+  margin-top: 20rpx;
+  padding-top: 18rpx;
+  border-top: 2rpx solid #eeeae2;
+  color: #777d76;
+  font-size: 22rpx;
+  line-height: 1.65;
+}

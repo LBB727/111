@@ -1,0 +1,25 @@
+<view class="quality-page">
+  <step-header step="{{3}}" total="{{5}}" title="检查这张照片" description="这里只检查本地文件能否读取、尺寸、比例、大小和格式；不会判断照片中的外貌或环境。" />
+  <view class="quality-summary {{result.passed ? 'quality-summary--pass' : 'quality-summary--fail'}}">
+    <image class="quality-summary__icon" src="../../assets/icons/{{result.passed ? 'check' : 'close'}}.svg" mode="aspectFit" aria-label="{{result.passed ? '检查通过' : '检查未通过'}}" />
+    <view class="quality-summary__copy">
+      <text class="quality-summary__title">{{result.passed ? '照片可以继续使用' : '请选择另一张照片或改用手动档案'}}</text>
+      <text class="quality-summary__description">{{result.passed ? '下一步由你手动确认造型信息。' : '未通过的项目只反映本地文件信息。'}}</text>
+    </view>
+  </view>
+  <view class="check-list">
+    <view wx:for="{{checks}}" wx:key="key" class="check-item">
+      <image class="check-item__icon" src="../../assets/icons/{{item.status === 'pass' ? 'check' : 'close'}}.svg" mode="aspectFit" aria-label="{{item.status === 'pass' ? '通过' : '未通过'}}" />
+      <view class="check-item__copy">
+        <view class="check-item__heading"><text class="check-item__label">{{item.label}}</text><text class="check-item__basis">{{item.basisLabel}}</text></view>
+        <text class="check-item__description">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{result.passed}}" class="quality-actions"><button class="button-primary quality-actions__button" bindtap="onContinue">继续手动确认</button></view>
+  <view wx:else class="quality-actions">
+    <button class="button-primary quality-actions__button" bindtap="onReselect"><image class="quality-actions__icon" src="../../assets/icons/refresh.svg" mode="aspectFit" />重新选择照片</button>
+    <button class="button-secondary quality-actions__button" bindtap="onUseManual">改用手动档案</button>
+    <button class="button-secondary quality-actions__button" bindtap="onReturnHome">返回首页</button>
+  </view>
+</view>

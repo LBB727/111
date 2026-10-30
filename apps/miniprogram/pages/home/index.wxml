@@ -1,0 +1,54 @@
+<view class="home-page">
+  <view class="wardrobe-art" aria-label="自然色衣橱线稿插画">
+    <view class="wardrobe-art__frame">
+      <view class="wardrobe-art__rail"></view>
+      <view class="wardrobe-art__hanger wardrobe-art__hanger--one"></view>
+      <view class="wardrobe-art__hanger wardrobe-art__hanger--two"></view>
+      <view class="wardrobe-art__hanger wardrobe-art__hanger--three"></view>
+      <view class="wardrobe-art__garment wardrobe-art__garment--one"></view>
+      <view class="wardrobe-art__garment wardrobe-art__garment--two"></view>
+      <view class="wardrobe-art__garment wardrobe-art__garment--three"></view>
+    </view>
+    <view class="wardrobe-art__ground"></view>
+  </view>
+
+  <view class="home-content">
+    <text class="home-content__brand">本色衣橱</text>
+    <text class="home-content__title">从你的本色出发</text>
+    <text class="home-content__description">用你确认的信息，整理一份适合当下场景的穿搭灵感</text>
+
+    <button class="button-primary home-content__primary" bindtap="onStartManual">
+      手动完成造型档案
+    </button>
+
+    <button class="button-secondary home-content__secondary" bindtap="onStartPhoto">
+      使用照片辅助观察
+    </button>
+
+    <text class="home-content__mode-note">照片模式在本地版仅用于你对照确认，不会自动判断外貌；云端辅助需另行开启和同意。</text>
+
+    <view class="privacy-promise">
+      <image
+        class="privacy-promise__icon"
+        src="../../assets/icons/lock.svg"
+        mode="aspectFit"
+        aria-label="隐私保护"
+      />
+      <text>本地记录 · 不做自动外貌识别</text>
+    </view>
+
+    <button class="demo-link" bindtap="onViewDemo">
+      <text>查看示例报告</text>
+      <image
+        class="demo-link__icon"
+        src="../../assets/icons/chevron.svg"
+        mode="aspectFit"
+        aria-label="进入示例报告"
+      />
+    </button>
+
+    <button class="privacy-link" bindtap="onOpenSettings">
+      隐私与本地数据
+    </button>
+  </view>
+</view>

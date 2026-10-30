@@ -1,0 +1,8 @@
+<svg viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="无五官清晰结构造型线稿">
+  <rect width="320" height="420" rx="28" fill="#F7F4ED"/>
+  <ellipse cx="160" cy="58" rx="31" ry="39" fill="#F4EFE6" stroke="#465A47" stroke-width="5"/>
+  <path d="M104 122 72 190l35 18 18-47v98l-15 128h43l7-108 7 108h43l-15-128v-98l18 47 35-18-32-68-42-26h-28Z" fill="#1F2A44" stroke="#465A47" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M126 124l34 27 34-27M160 151v108M125 259h70M153 279h14" fill="none" stroke="#F4EFE6" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="160" cy="184" r="5" fill="#B98A69"/>
+  <circle cx="160" cy="208" r="5" fill="#B98A69"/>
+</svg>

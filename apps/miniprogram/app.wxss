@@ -1,0 +1,72 @@
+page {
+  --color-bg: #f7f4ed;
+  --color-surface: #ffffff;
+  --color-text: #2f332f;
+  --color-muted: #6f756e;
+  --color-primary: #617560;
+  --color-primary-dark: #465a47;
+  --color-accent: #9b7257;
+  --color-danger: #a35449;
+  --color-border: #e5e1d8;
+  --space-xs: 12rpx;
+  --space-sm: 20rpx;
+  --space-md: 32rpx;
+  --space-lg: 48rpx;
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 32rpx;
+  --shadow-soft: 0 8rpx 24rpx rgba(47, 51, 47, 0.08);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+button,
+input {
+  box-sizing: border-box;
+}
+
+.button-primary,
+.button-secondary {
+  min-height: 88rpx;
+  border-radius: var(--radius-lg);
+  font-size: 30rpx;
+  line-height: 88rpx;
+}
+
+.button-primary {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.button-primary:active {
+  background: var(--color-primary-dark);
+  opacity: 0.92;
+}
+
+.button-secondary {
+  background: var(--color-surface);
+  border: 2rpx solid var(--color-border);
+  color: var(--color-text);
+}
+
+.input {
+  min-height: 88rpx;
+  padding: 0 var(--space-sm);
+  border: 2rpx solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.status-success { color: var(--color-primary-dark); }
+.status-warning { color: var(--color-accent); }
+.status-danger { color: var(--color-danger); }
+
+button:focus,
+input:focus {
+  outline: 4rpx solid rgba(97, 117, 96, 0.36);
+  outline-offset: 2rpx;
+}

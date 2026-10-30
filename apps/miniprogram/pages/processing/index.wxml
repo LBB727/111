@@ -1,0 +1,57 @@
+<view class="processing-page">
+  <view class="processing-page__intro">
+    <view class="processing-page__mark" aria-hidden="true">
+      <view class="processing-page__mark-ring"></view>
+      <view class="processing-page__mark-leaf"></view>
+    </view>
+    <text class="processing-page__title">本地规则分析</text>
+    <text class="processing-page__description">分析只在本机完成，不会上传照片或你的选择。</text>
+  </view>
+
+  <view class="processing-progress" aria-label="分析进度 {{progress}}%">
+    <view class="processing-progress__track">
+      <view class="processing-progress__fill" style="width: {{progress}}%;"></view>
+    </view>
+    <view class="processing-progress__meta">
+      <text>{{statusText}}</text>
+      <text>{{progress}}%</text>
+    </view>
+  </view>
+
+  <view class="processing-stages">
+    <view
+      wx:for="{{stages}}"
+      wx:key="label"
+      class="processing-stage {{item.done ? 'is-done' : ''}}"
+    >
+      <view class="processing-stage__indicator">
+        <image
+          wx:if="{{item.done}}"
+          class="processing-stage__check"
+          src="/assets/icons/check.svg"
+          mode="aspectFit"
+        />
+        <text wx:else>{{index + 1}}</text>
+      </view>
+      <view class="processing-stage__copy">
+        <text class="processing-stage__label">{{item.label}}</text>
+        <text class="processing-stage__detail">{{item.detail}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="processing-page__footer">
+    <button
+      wx:if="{{reportReady}}"
+      class="button-primary processing-page__button"
+      loading="{{navigating}}"
+      disabled="{{navigating}}"
+      bindtap="onViewReport"
+    >
+      立即查看
+    </button>
+    <text class="processing-page__note">
+      {{reportReady ? '即将自动打开报告' : '请保持页面开启片刻'}}
+    </text>
+  </view>
+</view>

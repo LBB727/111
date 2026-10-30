@@ -1,0 +1,5 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="圆领上衣单品线稿">
+  <rect width="240" height="240" rx="24" fill="#F7F4ED"/>
+  <path d="m77 58-42 34 24 34 19-15-8 82h100l-8-82 19 15 24-34-42-34-21-9H98Z" fill="#F4EFE6" stroke="#465A47" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M98 49c3 23 41 23 44 0M78 111l8-21M162 111l-8-21" fill="none" stroke="#617560" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,78 @@
+<view class="capture-page">
+  <step-header
+    step="{{2}}"
+    total="{{5}}"
+    title="选择一张清晰的正面照片"
+    description="自然光、无遮挡的单人照片，更方便完成基础检查。"
+  />
+
+  <view class="capture-kind">
+    <text class="capture-kind__title">先选择照片类型</text>
+    <radio-group bindchange="onPhotoKindChange">
+      <label class="capture-kind__option"><radio value="portrait" checked="{{photoKind === 'portrait'}}" />头像</label>
+      <label class="capture-kind__option"><radio value="fullBody" checked="{{photoKind === 'fullBody'}}" />全身照</label>
+    </radio-group>
+  </view>
+
+  <view wx:if="{{previewPath}}" class="photo-preview">
+    <image
+      class="photo-preview__image"
+      src="{{previewPath}}"
+      mode="aspectFit"
+      aria-label="已选择的本地照片预览"
+    />
+    <text class="photo-preview__status">{{selecting ? '正在读取照片信息…' : '照片读取未完成，可重新选择'}}</text>
+  </view>
+
+  <view wx:else class="photo-guide">
+    <image
+      class="photo-guide__icon"
+      src="../../assets/icons/image.svg"
+      mode="aspectFit"
+      aria-label="照片选择指引"
+    />
+    <view class="photo-guide__lines">
+      <text>正面看向镜头</text>
+      <text>自然光线均匀</text>
+      <text>画面中仅有本人</text>
+      <text>脸部保持无遮挡</text>
+    </view>
+  </view>
+
+  <view class="photo-guide">
+    <text class="photo-guide__title">拍摄建议</text>
+    <text>• 尽量使用自然光</text>
+    <text>• 关闭滤镜</text>
+    <text>• 避免大面积遮挡</text>
+    <text>这些是拍摄提示，不是已检测或已通过的项目。</text>
+  </view>
+
+  <view class="capture-actions">
+    <button
+      class="button-primary capture-actions__button {{selecting ? 'capture-actions__button--disabled' : ''}}"
+      data-source="camera"
+      disabled="{{selecting}}"
+      bindtap="onChoosePhoto"
+    >
+      拍摄照片
+    </button>
+    <button
+      class="button-secondary capture-actions__button {{selecting ? 'capture-actions__button--disabled' : ''}}"
+      data-source="album"
+      disabled="{{selecting}}"
+      bindtap="onChoosePhoto"
+    >
+      从相册选择
+    </button>
+  </view>
+
+  <view class="capture-note">
+    <image
+      class="capture-note__icon"
+      src="../../assets/icons/lock.svg"
+      mode="aspectFit"
+      aria-label="本地处理"
+    />
+    <text>照片路径与读取信息仅保留在本次会话中</text>
+  </view>
+</view>

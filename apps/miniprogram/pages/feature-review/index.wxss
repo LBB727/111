@@ -1,0 +1,15 @@
+.feature-page { min-height: 100vh; box-sizing: border-box; padding: 42rpx 40rpx 64rpx; }
+.feature-photo { display: flex; flex-direction: column; gap: 16rpx; margin: 24rpx 0; padding: 24rpx; color: #5d625d; border-radius: 20rpx; background: #f5f4ef; }
+.feature-photo__image { width: 100%; height: 320rpx; border-radius: 12rpx; }
+.feature-section { margin-top: 32rpx; }
+.feature-section__title { display: block; margin-bottom: 16rpx; font-size: 32rpx; font-weight: 600; color: #2d332e; }
+.feature-row { margin-bottom: 20rpx; padding: 28rpx 28rpx 18rpx; border: 2rpx solid #e5e1d8; border-radius: 20rpx; background: #ffffff; }
+.feature-row__note { display: block; margin-top: 12rpx; font-size: 24rpx; color: #70776f; }
+.measurement-card { padding: 28rpx; border: 2rpx solid #e5e1d8; border-radius: 20rpx; background: #ffffff; }
+.measurement-card__title { display: block; font-size: 29rpx; font-weight: 600; color: #2d332e; }
+.measurement-card__description { display: block; margin: 10rpx 0 18rpx; font-size: 24rpx; color: #70776f; }
+.measurement-field { display: flex; align-items: center; gap: 20rpx; min-height: 80rpx; border-top: 2rpx solid #eeeae2; }
+.measurement-field__label { flex: 1; color: #363c37; }
+.measurement-field__input { width: 220rpx; padding: 14rpx 18rpx; text-align: right; border-radius: 12rpx; background: #f6f4ef; }
+.feature-page__continue { width: 100%; margin-top: 26rpx; border-radius: 26rpx; }
+.feature-page__continue::after { border: 0; }

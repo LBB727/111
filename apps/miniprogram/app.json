@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/consent/index",
+    "pages/profile/index",
+    "pages/capture/index",
+    "pages/quality-check/index",
+    "pages/feature-review/index",
+    "pages/preferences/index",
+    "pages/processing/index",
+    "pages/result/index",
+    "pages/settings/index"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "window": {
+    "navigationBarBackgroundColor": "#f7f4ed",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "本色衣橱",
+    "backgroundColor": "#f7f4ed",
+    "backgroundTextStyle": "light"
+  }
+}

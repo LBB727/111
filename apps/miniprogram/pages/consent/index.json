@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "隐私与使用确认",
+  "usingComponents": {
+    "step-header": "../../components/step-header/index"
+  }
+}

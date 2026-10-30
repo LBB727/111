@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "照片检查",
+  "usingComponents": {
+    "step-header": "../../components/step-header/index"
+  }
+}

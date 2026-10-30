@@ -1,0 +1,32 @@
+<view class="consent-page">
+  <step-header
+    step="{{1}}"
+    total="{{5}}"
+    title="开始前，请确认"
+    description="我们只使用你明确同意的信息，在本机完成这次穿搭分析。"
+  />
+
+  <view class="local-note">
+    <image
+      class="local-note__icon"
+      src="../../assets/icons/lock.svg"
+      mode="aspectFit"
+      aria-label="本地隐私保护"
+    />
+    <view class="local-note__copy">
+      <text class="local-note__title">已确认档案和报告会保存在本机</text>
+      <text class="local-note__description">同意记录、已确认档案、报告、收藏和反馈保存在本机；照片路径只保留当前会话。不会上传，可在“隐私与本地数据”中单独清除。</text>
+    </view>
+  </view>
+
+  <checkbox-group class="consent-list" bindchange="onConsentChange">
+    <label wx:for="{{consentControls}}" wx:key="key" class="consent-item">
+      <checkbox value="{{item.key}}" checked="{{form[item.key]}}" color="#617560" />
+      <text class="consent-item__text">{{item.label}}</text>
+    </label>
+  </checkbox-group>
+
+  <button class="button-primary consent-page__continue" bindtap="onContinue">
+    同意并继续
+  </button>
+</view>

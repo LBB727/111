@@ -1,0 +1,28 @@
+.step-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 44rpx;
+}
+
+.step-header__progress {
+  margin-bottom: 16rpx;
+  color: #617560;
+  font-size: 24rpx;
+  font-weight: 500;
+  letter-spacing: 1rpx;
+}
+
+.step-header__title {
+  color: #2f332f;
+  font-size: 46rpx;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+.step-header__description {
+  margin-top: 18rpx;
+  color: #6f756e;
+  font-size: 27rpx;
+  line-height: 1.65;
+}

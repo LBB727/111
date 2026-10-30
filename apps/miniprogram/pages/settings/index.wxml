@@ -1,0 +1,135 @@
+<view class="settings-page">
+  <view class="local-notice">
+    <image
+      class="local-notice__icon"
+      src="../../assets/icons/lock.svg"
+      mode="aspectFit"
+      aria-label="本地隐私保护"
+    />
+    <view class="local-notice__copy">
+      <text class="local-notice__title">本地阶段：仅保存在本机</text>
+      <text class="local-notice__description">照片临时路径只在当前会话；档案、报告、收藏和反馈保存在本机。本阶段没有云端照片或账号数据。</text>
+    </view>
+  </view>
+
+  <view class="settings-section" aria-label="分项清除">
+    <button class="settings-row" bindtap="onClearPhoto">
+      <image
+        class="settings-row__icon"
+        src="../../assets/icons/image.svg"
+        mode="aspectFit"
+        aria-label="照片"
+      />
+      <view class="settings-row__copy">
+        <text class="settings-row__title">清除当前照片</text>
+        <text class="settings-row__description">清除本次分析使用的照片引用</text>
+      </view>
+      <image
+        class="settings-row__chevron"
+        src="../../assets/icons/chevron.svg"
+        mode="aspectFit"
+        aria-hidden="true"
+      />
+    </button>
+
+    <button class="settings-row" bindtap="onClearProfile">
+      <view class="settings-row__document" aria-label="档案">
+        <view class="settings-row__document-line"></view>
+        <view class="settings-row__document-line settings-row__document-line--short"></view>
+      </view>
+      <view class="settings-row__copy">
+        <text class="settings-row__title">清除档案</text>
+        <text class="settings-row__description">删除保存在本机的造型档案</text>
+      </view>
+      <image
+        class="settings-row__chevron"
+        src="../../assets/icons/chevron.svg"
+        mode="aspectFit"
+        aria-hidden="true"
+      />
+    </button>
+
+    <button class="settings-row" bindtap="onClearReport">
+      <view class="settings-row__document" aria-label="报告">
+        <view class="settings-row__document-line"></view>
+        <view class="settings-row__document-line settings-row__document-line--short"></view>
+      </view>
+      <view class="settings-row__copy">
+        <text class="settings-row__title">清除报告</text>
+        <text class="settings-row__description">删除已生成的结构化建议报告</text>
+      </view>
+      <image
+        class="settings-row__chevron"
+        src="../../assets/icons/chevron.svg"
+        mode="aspectFit"
+        aria-hidden="true"
+      />
+    </button>
+
+    <button class="settings-row" bindtap="onClearFavorites">
+      <image
+        class="settings-row__icon"
+        src="../../assets/icons/heart.svg"
+        mode="aspectFit"
+        aria-label="收藏"
+      />
+      <view class="settings-row__copy">
+        <text class="settings-row__title">清除收藏</text>
+        <text class="settings-row__description">删除保存在本机的收藏内容</text>
+      </view>
+      <image
+        class="settings-row__chevron"
+        src="../../assets/icons/chevron.svg"
+        mode="aspectFit"
+        aria-hidden="true"
+      />
+    </button>
+
+    <button class="settings-row" bindtap="onClearFeedback">
+      <image
+        class="settings-row__icon"
+        src="../../assets/icons/refresh.svg"
+        mode="aspectFit"
+        aria-label="反馈"
+      />
+      <view class="settings-row__copy">
+        <text class="settings-row__title">清除反馈</text>
+        <text class="settings-row__description">清除反馈及其影响的旧报告，保留档案基础信息</text>
+      </view>
+      <image
+        class="settings-row__chevron"
+        src="../../assets/icons/chevron.svg"
+        mode="aspectFit"
+        aria-hidden="true"
+      />
+    </button>
+  </view>
+
+  <button
+    class="delete-all {{deletingAll ? 'delete-all--disabled' : ''}}"
+    loading="{{deletingAll}}"
+    disabled="{{deletingAll}}"
+    bindtap="onClearAll"
+  >
+    <image
+      class="delete-all__icon"
+      src="../../assets/icons/trash.svg"
+      mode="aspectFit"
+      aria-label="删除"
+    />
+    <view class="delete-all__copy">
+      <text class="delete-all__title">清除全部本地数据</text>
+      <text class="delete-all__description">删除同意记录、档案、报告、收藏和反馈，无法恢复</text>
+    </view>
+  </button>
+
+  <view class="settings-footnote">
+    <image
+      class="settings-footnote__icon"
+      src="../../assets/icons/lock.svg"
+      mode="aspectFit"
+      aria-hidden="true"
+    />
+    <text>清除操作仅影响本小程序；当前照片只保留临时路径，不会删除设备原图。</text>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+<view class="feature-page">
+  <step-header step="{{4}}" total="{{5}}" title="手动确认你的造型档案" description="所有选项都从不确定开始，由你自己填写；不会自动识别或评价外貌。" />
+
+  <view wx:if="{{mode === 'photo' && photoPath}}" class="feature-photo">
+    <image class="feature-photo__image" src="{{photoPath}}" mode="aspectFit" aria-label="仅供你自行对照的本地照片" />
+    <text>这张本地照片只供你自行对照，不进行外貌判断。</text>
+  </view>
+
+  <view wx:for="{{appearanceGroups}}" wx:key="title" class="feature-section">
+    <text class="feature-section__title">{{item.title}}</text>
+    <view wx:for="{{item.items}}" wx:for-item="field" wx:key="key" class="feature-row">
+      <choice-group label="{{field.label}}" options="{{field.options}}" value="{{item.group === 'colorCalibration' ? draft.colorCalibration[field.key] : draft[field.key]}}" data-key="{{field.key}}" data-group="{{item.group || ''}}" bind:change="onAppearanceChange" />
+      <text class="feature-row__note">这是你的选择，不是外貌评分。</text>
+    </view>
+  </view>
+
+  <view class="feature-section">
+    <text class="feature-section__title">松量参考与可选尺寸</text>
+    <view class="feature-row">
+      <choice-group label="松量参考" options="{{fitOptions}}" value="{{fitPreference}}" bind:change="onFitPreferenceChange" />
+      <text class="feature-row__note">这是你的穿着偏好，不是外貌评分。</text>
+    </view>
+    <view class="measurement-card">
+      <text class="measurement-card__title">可选尺寸（厘米）</text>
+      <text class="measurement-card__description">不填写也可以继续；这里只保存你主动输入的尺寸。</text>
+      <view wx:for="{{measurementFields}}" wx:key="key" class="measurement-field">
+        <text class="measurement-field__label">{{item.label}}</text>
+        <input
+          class="measurement-field__input"
+          type="digit"
+          value="{{manualMeasurements[item.key]}}"
+          placeholder="选填"
+          data-key="{{item.key}}"
+          bindinput="onMeasurementInput"
+        />
+      </view>
+    </view>
+  </view>
+
+  <button class="button-primary feature-page__continue" bindtap="onContinue">确认并继续</button>
+</view>

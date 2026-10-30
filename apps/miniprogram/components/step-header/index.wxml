@@ -1,0 +1,5 @@
+<view class="step-header">
+  <text wx:if="{{step && total}}" class="step-header__progress">第 {{step}} 步，共 {{total}} 步</text>
+  <text class="step-header__title">{{title}}</text>
+  <text wx:if="{{description}}" class="step-header__description">{{description}}</text>
+</view>

@@ -1,0 +1,63 @@
+<view class="preferences-page">
+  <step-header step="{{5}}" total="{{5}}" title="细化你的造型偏好" description="选择场景（单选）和风格偏好（可多选）请在前一步修改；所有选择仅用于本次本地建议。" />
+
+  <view class="preference-section preference-summary" wx:if="{{summary.length}}">
+    <view class="preference-summary__heading">
+      <text class="preference-summary__title">前一步信息</text>
+      <button class="preference-summary__edit" bindtap="onEditProfile">返回修改</button>
+    </view>
+    <view wx:for="{{summary}}" wx:key="label" class="preference-summary__row">
+      <text>{{item.label}}</text><text>{{item.value}}</text>
+    </view>
+  </view>
+
+  <view class="preference-section">
+    <choice-group label="常穿松量" options="{{choiceGroups.fitPreference}}" value="{{form.fitPreference}}" required appearance="outline" data-field="fitPreference" bind:change="onChoiceChange" />
+    <text wx:if="{{errors.fitPreference}}" class="preference-error">{{errors.fitPreference}}</text>
+    <choice-group label="舒适需求" options="{{choiceGroups.comfortNeeds}}" value="{{form.comfortNeeds}}" multiple appearance="outline" data-field="comfortNeeds" bind:change="onChoiceChange" />
+  </view>
+
+  <view class="preference-section">
+    <choice-group label="每天造型时间" options="{{choiceGroups.stylingTimeMinutes}}" value="{{form.stylingTimeMinutes}}" required appearance="outline" data-field="stylingTimeMinutes" bind:change="onChoiceChange" />
+    <text wx:if="{{errors.stylingTimeMinutes}}" class="preference-error">{{errors.stylingTimeMinutes}}</text>
+  </view>
+
+  <view class="preference-section">
+    <choice-group label="风格偏好" options="{{choiceGroups.stylePreferences}}" value="{{form.stylePreferences}}" multiple required appearance="outline" data-field="stylePreferences" bind:change="onChoiceChange" />
+    <text wx:if="{{errors.stylePreferences}}" class="preference-error">{{errors.stylePreferences}}</text>
+    <view class="trend-row"><text>愿意尝试流行趋势</text><switch checked="{{form.trendEnabled}}" color="#617560" bindchange="onTrendChange" /></view>
+  </view>
+
+  <view class="preference-section">
+    <text class="preference-section__title">发色意愿</text>
+    <choice-group label="当前发色" options="{{choiceGroups.currentHairColor}}" value="{{form.hairColorPreference.currentColor}}" required appearance="outline" data-field="currentHairColor" bind:change="onChoiceChange" />
+    <text wx:if="{{hairColorErrors.currentColor}}" class="preference-error">{{hairColorErrors.currentColor}}</text>
+    <choice-group label="是否染发" options="{{choiceGroups.hairColorWillingness}}" value="{{form.hairColorPreference.willingness}}" required appearance="outline" data-field="hairColorWillingness" bind:change="onChoiceChange" />
+    <choice-group label="接受专业漂发评估" options="{{choiceGroups.acceptsBleach}}" value="{{form.hairColorPreference.acceptsBleach}}" required appearance="outline" data-field="acceptsBleach" bind:change="onChoiceChange" />
+    <choice-group label="维护成本" options="{{choiceGroups.maintenanceLevel}}" value="{{form.hairColorPreference.maintenanceLevel}}" required appearance="outline" data-field="maintenanceLevel" bind:change="onChoiceChange" />
+    <choice-group label="工作限制" options="{{choiceGroups.workplaceRestriction}}" value="{{form.hairColorPreference.workplaceRestriction}}" required appearance="outline" data-field="workplaceRestriction" bind:change="onChoiceChange" />
+  </view>
+
+  <view class="preference-section">
+    <choice-group label="妆容" options="{{choiceGroups.makeupPreference}}" value="{{form.makeupPreference}}" required appearance="outline" data-field="makeupPreference" bind:change="onChoiceChange" />
+    <text wx:if="{{errors.makeupPreference}}" class="preference-error">{{errors.makeupPreference}}</text>
+  </view>
+
+  <view class="preference-section">
+    <choice-group label="不希望改变" options="{{choiceGroups.lockedAreas}}" value="{{form.lockedAreas}}" multiple appearance="outline" data-field="lockedAreas" bind:change="onChoiceChange" />
+  </view>
+
+  <view class="preference-section">
+    <text class="preference-section__title">可选尺寸</text>
+    <text class="preference-section__hint">仅用于版型、长度建议，不评价身材。</text>
+    <view class="measurement-grid">
+      <label wx:for="{{measurementFields}}" wx:key="key" class="measurement-field">
+        <text>{{item.label}}</text>
+        <input type="digit" value="{{form.manualMeasurements[item.key]}}" placeholder="选填" data-key="{{item.key}}" bindinput="onMeasurementInput" />
+        <text wx:if="{{measurementErrors[item.key]}}" class="preference-error">{{measurementErrors[item.key]}}</text>
+      </label>
+    </view>
+  </view>
+
+  <button class="button-primary preferences-page__continue" bindtap="onContinue">生成我的建议</button>
+</view>

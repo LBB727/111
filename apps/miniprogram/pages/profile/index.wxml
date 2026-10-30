@@ -1,0 +1,69 @@
+<view class="profile-page">
+  <step-header
+    step="{{2}}"
+    total="{{mode === 'photo' ? 6 : 5}}"
+    title="先说说这次想怎么呈现"
+    description="这些信息由你填写，用于整理建议；不会调用定位，也不会自动判断外貌。"
+  />
+
+  <view class="profile-section">
+    <choice-group
+      label="表达方向"
+      options="{{options.presentationMode}}"
+      value="{{form.presentationMode}}"
+      required
+      appearance="outline"
+      bind:change="onPresentationModeChange"
+    />
+    <text wx:if="{{errors.presentationMode}}" class="profile-error profile-error--choice">{{errors.presentationMode}}</text>
+  </view>
+
+  <view class="profile-section">
+    <choice-group
+      label="当前场景（可多选）"
+      options="{{options.scene}}"
+      value="{{form.scenes}}"
+      multiple
+      required
+      appearance="outline"
+      bind:change="onScenesChange"
+    />
+    <text wx:if="{{errors.scenes}}" class="profile-error profile-error--choice">{{errors.scenes}}</text>
+  </view>
+
+  <view class="profile-section">
+    <text class="profile-section__title">城市或气候（可不填）</text>
+    <input class="input" maxlength="40" value="{{form.cityOrClimateText}}" placeholder="例如：上海夏季、干燥空调房" bindinput="onCityOrClimateInput" />
+    <text wx:if="{{errors.cityOrClimateText}}" class="profile-error">{{errors.cityOrClimateText}}</text>
+  </view>
+
+  <view class="profile-section">
+    <choice-group
+      label="活动环境（可多选）"
+      options="{{options.activityContext}}"
+      value="{{form.activityContext}}"
+      multiple
+      required
+      appearance="outline"
+      bind:change="onActivityContextChange"
+    />
+    <text wx:if="{{errors.activityContext}}" class="profile-error profile-error--choice">{{errors.activityContext}}</text>
+  </view>
+
+  <view class="profile-section">
+    <choice-group
+      label="希望呈现（可多选）"
+      options="{{options.desiredEffects}}"
+      value="{{form.desiredEffects}}"
+      multiple
+      required
+      appearance="outline"
+      bind:change="onDesiredEffectsChange"
+    />
+    <text wx:if="{{errors.desiredEffects}}" class="profile-error profile-error--choice">{{errors.desiredEffects}}</text>
+  </view>
+
+  <button class="button-primary profile-page__continue" bindtap="onSubmit">
+    {{mode === 'photo' ? '继续选择本地照片' : '继续确认我的特征'}}
+  </button>
+</view>
